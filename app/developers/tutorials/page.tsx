@@ -140,7 +140,7 @@ export default function TutorialsPage() {
               <p className="text-gray-700 mb-6">New to SSI? Begin with our starter template that provides boilerplate integration code for any domain.</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="bg-ssi-teal hover:bg-teal-600">
-                  <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/reference/client-template">
+                  <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/reference/client-template">
                     <Github className="mr-2" size={16} />
                     Clone Template
                   </Link>

@@ -254,7 +254,7 @@ export default function StandardsPage() {
             The protocol is designed for interoperability with existing standards frameworks. Organizations interested in AI governance infrastructure can explore SSI on GitHub.
           </p>
           <Button asChild size="lg" className="bg-ssi-teal hover:bg-teal-600 text-white text-lg px-8">
-            <Link href="https://github.com/Jtjr86/ssi-protocol">View Project on GitHub</Link>
+            <Link href="https://github.com/Jtjr86/ssi-protocol-oss">View Project on GitHub</Link>
           </Button>
         </div>
       </section>

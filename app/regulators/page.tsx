@@ -167,7 +167,7 @@ export default function RegulatorsPage() {
                   Technical documentation of SSI protocol architecture, safety mechanisms, and governance model.
                 </CardDescription>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/docs" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/docs" target="_blank" rel="noopener noreferrer">
                     <BookOpen className="mr-2" size={16} />
                     View Documentation
                   </Link>
@@ -185,7 +185,7 @@ export default function RegulatorsPage() {
                   Open-source implementation for evaluating SSI safety mechanisms and policy enforcement.
                 </CardDescription>
                 <Button variant="outline" className="w-full" asChild>
-                  <Link href="https://github.com/Jtjr86/ssi-protocol" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://github.com/Jtjr86/ssi-protocol-oss" target="_blank" rel="noopener noreferrer">
                     View on GitHub
                   </Link>
                 </Button>
@@ -220,7 +220,7 @@ export default function RegulatorsPage() {
             The protocol is designed for operator adoption within diverse regulatory contexts. SSI protocol provides mechanisms operators can use when implementing governance requirements.
           </p>
           <Button size="lg" asChild className="bg-ssi-teal hover:bg-teal-600 text-white">
-            <Link href="https://github.com/Jtjr86/ssi-protocol" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/Jtjr86/ssi-protocol-oss" target="_blank" rel="noopener noreferrer">
               Explore Protocol on GitHub
             </Link>
           </Button>

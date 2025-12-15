@@ -214,7 +214,7 @@ export default function AboutPage() {
                   Join the SSI community on GitHub to contribute to protocol development, report issues, or participate in discussions.
                 </p>
                 <Button asChild className="w-full bg-ssi-navy hover:bg-blue-900">
-                  <Link href="https://github.com/Jtjr86/ssi-protocol">View on GitHub</Link>
+                  <Link href="https://github.com/Jtjr86/ssi-protocol-oss">View on GitHub</Link>
                 </Button>
               </CardContent>
             </Card>

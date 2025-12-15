@@ -163,7 +163,7 @@ export default function ResearchPage() {
               SSI specifications are openly available for academic study. Researchers can independently analyze protocol behavior, implement experimental variants, and publish findings without coordination overhead. The architecture is designed for reproducible research and verification.
             </p>
             <Button size="lg" asChild>
-              <Link href="https://github.com/Jtjr86/ssi-protocol" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/Jtjr86/ssi-protocol-oss" target="_blank" rel="noopener noreferrer">
                 View on GitHub
               </Link>
             </Button>
@@ -180,12 +180,12 @@ export default function ResearchPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild className="bg-ssi-teal hover:bg-teal-600 text-white">
-              <Link href="https://github.com/Jtjr86/ssi-protocol" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/Jtjr86/ssi-protocol-oss" target="_blank" rel="noopener noreferrer">
                 Explore Repository
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="border-white text-white hover:bg-white hover:text-ssi-navy bg-transparent">
-              <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/docs" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/docs" target="_blank" rel="noopener noreferrer">
                 Read Documentation
               </Link>
             </Button>

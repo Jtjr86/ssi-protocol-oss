@@ -34,7 +34,7 @@ export default function DevelopersPage() {
               Build SSI Protocol-compliant systems or deploy the reference runtime implementation
             </p>
             <Button asChild size="lg" className="bg-ssi-teal hover:bg-teal-600 text-white">
-              <Link href="https://github.com/Jtjr86/ssi-protocol">
+              <Link href="https://github.com/Jtjr86/ssi-protocol-oss">
                 <Github className="mr-2" size={20} />
                 View on GitHub
               </Link>
@@ -116,7 +116,7 @@ export default function DevelopersPage() {
                     <li>• Not yet published to PyPI</li>
                   </ul>
                   <Button asChild className="w-full bg-ssi-navy hover:bg-blue-900">
-                    <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/sdks/python">View Code</Link>
+                    <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/sdks/python">View Code</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -138,7 +138,7 @@ export default function DevelopersPage() {
                     <li>• Not yet published to npm</li>
                   </ul>
                   <Button asChild className="w-full bg-ssi-navy hover:bg-blue-900">
-                    <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/sdks/typescript">View Code</Link>
+                    <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/sdks/typescript">View Code</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -158,7 +158,7 @@ export default function DevelopersPage() {
                   Docker build files included in repo. Build locally with docker-compose. (Not yet published to Docker Hub)
                 </p>
                 <Button asChild variant="outline" className="w-full">
-                  <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/docker">Docker Docs</Link>
+                  <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/docker">Docker Docs</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -303,7 +303,7 @@ node dist/server.js`}</pre>
                   </Link>
                 </Button>
                 <Button asChild variant="outline">
-                  <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/reference/gateway">
+                  <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/reference/gateway">
                     <Github className="mr-2" size={16} />
                     View Source
                   </Link>
@@ -349,7 +349,7 @@ node dist/server.js`}</pre>
                 </ul>
                 <div className="flex gap-3">
                   <Button asChild variant="outline" className="flex-1">
-                    <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/reference/client-trader">
+                    <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/reference/client-trader">
                       View Source
                     </Link>
                   </Button>
@@ -389,7 +389,7 @@ node dist/server.js`}</pre>
                 </ul>
                 <div className="flex gap-3">
                   <Button asChild variant="outline" className="flex-1">
-                    <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/reference/client-healthcare">
+                    <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/reference/client-healthcare">
                       View Source
                     </Link>
                   </Button>
@@ -429,7 +429,7 @@ node dist/server.js`}</pre>
                 </ul>
                 <div className="flex gap-3">
                   <Button asChild variant="outline" className="flex-1">
-                    <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/reference/client-content-mod">
+                    <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/reference/client-content-mod">
                       View Source
                     </Link>
                   </Button>
@@ -469,7 +469,7 @@ node dist/server.js`}</pre>
                 </ul>
                 <div className="flex gap-3">
                   <Button asChild variant="outline" className="flex-1">
-                    <Link href="https://github.com/Jtjr86/ssi-protocol/tree/main/reference/client-template">
+                    <Link href="https://github.com/Jtjr86/ssi-protocol-oss/tree/main/reference/client-template">
                       View Source
                     </Link>
                   </Button>
@@ -600,7 +600,7 @@ node dist/server.js`}</pre>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="bg-white text-ssi-navy hover:bg-gray-100">
-              <Link href="https://github.com/Jtjr86/ssi-protocol">
+              <Link href="https://github.com/Jtjr86/ssi-protocol-oss">
                 <Github className="mr-2" size={20} />
                 GitHub Repository
               </Link>
