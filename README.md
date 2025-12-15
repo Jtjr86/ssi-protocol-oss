@@ -258,6 +258,59 @@ az postgres server create \
 
 ---
 
+
+---
+
+##  Protocol vs SSI Cloud
+
+### What's the Difference?
+
+**SSI Protocol** is an **open specification + reference implementation** for cryptographic audit trails. You can:
+-  Self-host the entire stack (Gateway + Kernel + PostgreSQL)
+-  Modify the code for your use case (Apache 2.0 license)
+-  Deploy on any cloud provider (AWS, Azure, GCP, on-premises)
+-  Run production workloads without vendor dependency
+
+**SSI Cloud** is a **planned managed hosting option** (not yet available) that will provide:
+-  Enterprise key management (KMS integration, automated rotation)
+-  SLA guarantees (99.9% uptime, support contracts)
+-  Operational controls (automated backups, disaster recovery)
+-  Advanced exports (compliance reports, data warehouse integrations)
+
+### No Vendor Lock-In
+
+The SSI Protocol is designed to be **deployment-agnostic**:
+- **Protocol specification** is open and versioned (Apache 2.0)
+- **Reference implementation** is fully functional for production use
+- **No proprietary extensions** required for core functionality
+- **Standard PostgreSQL**  migrate data anytime using pg_dump
+- **Standard REST APIs**  switch implementations without client changes
+
+If SSI Cloud becomes available, it will be **one deployment option among many**, not a requirement.
+
+### When to Self-Host vs Use SSI Cloud
+
+| Factor | Self-Host | SSI Cloud (Future) |
+|--------|-----------|-------------------|
+| **Control** | Full control over infrastructure | Managed service, less operational burden |
+| **Cost** | Pay for compute/storage only | Pay for platform + support |
+| **Customization** | Modify code freely | Configuration-based customization |
+| **Compliance** | Your responsibility (SOC 2, HIPAA, etc.) | Managed compliance certifications |
+| **Key Management** | DIY KMS integration | Automated key rotation + escrow |
+| **Support** | Community + self-service | Dedicated support team (SLA) |
+
+**Recommendation:** Start with self-hosting using [PILOT_README.md](PILOT_README.md). Evaluate SSI Cloud later if operational burden becomes a concern.
+
+### Certification  Vendor Lock-In
+
+The [CERTIFICATION_FRAMEWORK.md](CERTIFICATION_FRAMEWORK.md) defines **protocol compliance** (similar to W3C standards or OAuth2 certification), not commercial gatekeeping. Any implementation that:
+-  Uses Ed25519 + SHA-256 for audit trails
+-  Enforces multi-tenant isolation
+-  Supports RBAC (admin, operator, auditor, viewer)
+-  Provides tamper-detection APIs
+
+...can be considered SSI Protocol-compliant, regardless of who operates it.
+
 ## 🛣️ Roadmap
 
 ### ✅ Completed (v0.3.1)
