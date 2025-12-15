@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ssi-protocol.org/schemas/rpx.json",
+  "title": "SSI RPX Audit Entry",
+  "description": "JSON schema for SSI RPX (Replayable Proof of eXecution) audit trail entry",
+  "type": "object",
+  "required": ["rpx_id", "timestamp", "client_id", "system_id", "action", "decision", "hash"],
+  "properties": {
+    "rpx_id": {
+      "type": "string",
+      "description": "Unique identifier for this audit entry",
+      "pattern": "^[a-f0-9-]{36}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the decision"
+    },
+    "client_id": {
+      "type": "string",
+      "description": "Client that requested the decision",
+      "minLength": 1
+    },
+    "system_id": {
+      "type": "string",
+      "description": "System/environment identifier",
+      "minLength": 1
+    },
+    "action": {
+      "type": "object",
+      "description": "Action that was evaluated",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object"
+        }
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["ALLOW", "DENY"],
+      "description": "Final decision"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Reason for the decision"
+    },
+    "envelope": {
+      "type": "object",
+      "description": "Envelope used for evaluation",
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string"},
+        "version": {"type": "string"}
+      }
+    },
+    "rules_evaluated": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "All rules that were evaluated"
+    },
+    "rules_triggered": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Rules that triggered"
+    },
+    "hash": {
+      "type": "string",
+      "description": "SHA256 hash of (request + envelope_id + decision) for tamper-evidence",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

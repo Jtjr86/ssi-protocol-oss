@@ -1,0 +1,8 @@
+{
+  "proposal_id": "PROPOSAL-C60E531E",
+  "lane": "staging",
+  "envelope_file": "C:\\Users\\betsy\\ssi-protocol-existing\\reference\\kernel\\envelopes\\staging\\trading-safety.v0.2.4.json",
+  "envelope_version": "0.2.4",
+  "envelope_sha256": "1399120fbf0fa8d2f787933ec291893accc62c148ec7778ebc3b807dcd4a2141",
+  "approved_at": "2025-12-12T03:33:02.928Z"
+}

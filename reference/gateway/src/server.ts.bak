@@ -1,0 +1,56 @@
+import express from "express";
+import { v4 as uuidv4 } from "uuid";
+import { SSIRequest } from "./types";
+import { getEnvelopeForRequest } from "./envelopes";
+import { evaluateInKernel } from "./kernelClient";
+import { writeRPXEntry } from "./rpxClient";
+
+const app = express();
+app.use(express.json());
+
+app.post("/v1/decisions", (req, res) => {
+  try {
+    const body = req.body as Partial<SSIRequest>;
+
+    const ssiRequest: SSIRequest = {
+      request_id: body.request_id ?? uuidv4(),
+      client_id: body.client_id ?? "unknown-client",
+      system_id: body.system_id ?? "test-system",
+      timestamp: body.timestamp ?? new Date().toISOString(),
+      action: {
+        type: body.action?.type ?? "trade.order.place",
+        payload: body.action?.payload ?? {}
+      },
+      context: body.context ?? {
+        ip: req.ip,
+        user_agent: req.headers["user-agent"] ?? ""
+      }
+    };
+
+    const envelope = getEnvelopeForRequest(ssiRequest.system_id, ssiRequest.action.type);
+    const decision = evaluateInKernel(ssiRequest, envelope);
+    const rpxEntry = writeRPXEntry({ request: ssiRequest, envelope, decision });
+
+    return res.status(200).json({
+      success: true,
+      decision: {
+        decision: decision.decision,
+        reason: decision.reason,
+        details: decision.details
+      },
+      rpx_id: rpxEntry.rpx_id
+    });
+  } catch (err) {
+    console.error("Error in /v1/decisions:", err);
+    return res.status(500).json({
+      success: false,
+      error: "INTERNAL_ERROR"
+    });
+  }
+});
+
+const PORT = process.env.PORT || 4040;
+app.listen(PORT, () => {
+  console.log(`ssi-gateway-ref listening on http://localhost:${PORT}`);
+  console.log("POST /v1/decisions with { client_id, system_id, action: { type, payload: { notional }}}");
+});

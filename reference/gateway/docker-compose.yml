@@ -1,0 +1,64 @@
+# SSI Cloud Track A - Local Development Stack
+
+version: '3.8'
+
+services:
+  # PostgreSQL for signed, hash-chained RPX entries
+  postgres:
+    image: postgres:16-alpine
+    container_name: ssi-postgres
+    environment:
+      POSTGRES_USER: ssi_user
+      POSTGRES_PASSWORD: ssi_password
+      POSTGRES_DB: ssi_cloud
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d  # Auto-run migrations on first start
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ssi_user -d ssi_cloud"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # Gateway (with Track A signing enabled)
+  gateway:
+    build:
+      context: ../..
+      dockerfile: docker/gateway.Dockerfile
+    container_name: ssi-gateway
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://ssi_user:ssi_password@postgres:5432/ssi_cloud
+      SIGNING_SEED: ${SIGNING_SEED:-INSECURE_DEV_SEED}
+      PORT: 4040
+      KERNEL_URL: http://kernel:5050/v1/evaluate
+    ports:
+      - "4040:4040"
+    volumes:
+      - ./envelopes:/app/envelopes
+      - ./rpx-logs:/app/rpx-logs  # Deprecated in Track A, but kept for migration
+
+  # Kernel (existing service - no Track A changes)
+  kernel:
+    build:
+      context: ../..
+      dockerfile: docker/kernel.Dockerfile
+    container_name: ssi-kernel
+    environment:
+      PORT: 5050
+    ports:
+      - "5050:5050"
+    volumes:
+      - ../kernel/envelopes:/app/envelopes
+
+volumes:
+  postgres_data:
+    name: ssi_postgres_data
+
+networks:
+  default:
+    name: ssi-network

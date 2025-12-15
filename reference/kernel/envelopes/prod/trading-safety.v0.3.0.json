@@ -1,0 +1,36 @@
+{
+  "envelope_id": "trading-safety-prod-v0.3.1",
+  "name": "TradingSafetyEnvelope",
+  "version": "0.3.1",
+  "description": "Production envelope: Strict limits for live trading",
+  "scope": {
+    "system_id": "trading-prod",
+    "action_type": "trade.order.place"
+  },
+  "rules": [
+    {
+      "id": "RULE-MAX-NOTIONAL-001",
+      "description": "DENY orders with notional > 7,500 (production safety limit)",
+      "max_notional": 7500
+    },
+    {
+      "id": "RULE-MAX-OPEN-POSITIONS-001", 
+      "description": "DENY new positions when open position count >= 5 (production safety limit)",
+      "max_open_positions": 5
+    }
+  ],
+  "metadata": {
+    "author": "SSI Protocol Governance",
+    "created_at": "2025-01-11T00:00:00Z",
+    "environment": "production",
+    "lane": "prod",
+    "purpose": "Production-grade risk limits for live trading systems",
+    "promoted_from": "staging",
+    "promoted_at": "2025-01-11T00:00:00Z",
+    "approved_by": "founder@ssiprotocol.org",
+    "approval_ticket": "GOVERNANCE-001"
+  },
+  "signature": "sha256:d4f5e6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5",
+  "signed_by": "prod-signer-key",
+  "signed_at": "2025-01-11T00:00:00Z"
+}

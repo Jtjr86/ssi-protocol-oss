@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ssi-protocol.org/schemas/envelope.json",
+  "title": "SSI Governance Envelope",
+  "description": "JSON schema for SSI governance envelope specification",
+  "type": "object",
+  "required": ["id", "name", "version", "rules"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this envelope",
+      "pattern": "^[a-z0-9-]+$",
+      "examples": ["trading-safety"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name",
+      "minLength": 1,
+      "examples": ["Trading Safety Limits"]
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["0.2.1"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of this envelope's purpose"
+    },
+    "rules": {
+      "type": "array",
+      "description": "Governance rules to evaluate",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "condition", "action"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique rule identifier",
+            "pattern": "^RULE-[A-Z0-9-]+$",
+            "examples": ["RULE-MAX-NOTIONAL-001"]
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable rule description"
+          },
+          "condition": {
+            "type": "string",
+            "description": "JSONPath or expression to evaluate",
+            "examples": ["$.payload.notional > 5000"]
+          },
+          "action": {
+            "type": "string",
+            "enum": ["ALLOW", "DENY"],
+            "description": "Action to take when condition is true"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Explanation shown when rule triggers"
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional metadata (severity, category, etc.)"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional envelope metadata",
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

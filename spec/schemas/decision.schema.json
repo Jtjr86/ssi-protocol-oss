@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ssi-protocol.org/schemas/decision.json",
+  "title": "SSI Decision Response",
+  "description": "JSON schema for SSI decision response from Gateway",
+  "type": "object",
+  "required": ["success", "decision"],
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "Whether the evaluation succeeded"
+    },
+    "decision": {
+      "type": "object",
+      "description": "Decision details from Kernel",
+      "required": ["decision", "reason"],
+      "properties": {
+        "decision": {
+          "type": "string",
+          "enum": ["ALLOW", "DENY"],
+          "description": "Final decision"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Human-readable explanation",
+          "minLength": 1
+        },
+        "details": {
+          "type": "object",
+          "description": "Evaluation details",
+          "properties": {
+            "rules_evaluated": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "All rules that were checked"
+            },
+            "rules_triggered": {
+              "type": "array",
+              "items": {"type": "string"},
+              "description": "Rules that matched and triggered"
+            }
+          }
+        },
+        "envelope": {
+          "type": "object",
+          "description": "Envelope that was used for evaluation",
+          "properties": {
+            "id": {"type": "string"},
+            "name": {"type": "string"},
+            "version": {"type": "string"}
+          }
+        }
+      }
+    },
+    "rpx_id": {
+      "type": "string",
+      "description": "Unique audit trail identifier",
+      "pattern": "^[a-f0-9-]{36}$"
+    },
+    "error": {
+      "type": "string",
+      "description": "Error message if success=false"
+    }
+  }
+}

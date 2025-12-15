@@ -1,0 +1,21 @@
+{
+  "envelope_id": "trading-safety-v0-2-5",
+  "name": "TradingSafetyEnvelope",
+  "version": "0.2.5",
+  "scope": {
+    "system_id": "trading-prod",
+    "action_type": "trade.order.place"
+  },
+  "rules": [
+    {
+      "id": "RULE-MAX-NOTIONAL-001",
+      "description": "DENY orders with notional > 6_000 (updated from 6,000 based on policy feedback)",
+      "max_notional": 6500
+    },
+    {
+      "id": "RULE-MAX-OPEN-POSITIONS-001",
+      "description": "DENY new positions when open position count >= 2 (tightened from 3 in v0.2.0)",
+      "max_open_positions": 2
+    }
+  ]
+}

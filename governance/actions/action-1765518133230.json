@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-12-12T05:42:13.230Z",
+  "action": "approve_proposal",
+  "proposal_id": "PROPOSAL-TEST-CLOSURE",
+  "envelope_hash": "184153f944af2c9f9500dfafb4828c6ef292311fdf491112fd94f47c9940a7ff",
+  "envelope_path": "C:\\Users\\betsy\\ssi-protocol-existing\\reference\\kernel\\envelopes\\staging\\trading-safety.v0.2.6.json",
+  "archived_to": "C:\\Users\\betsy\\ssi-protocol-existing\\governance\\policy-proposals\\archived\\PROPOSAL-TEST-CLOSURE.json",
+  "approved_by": "cli-operator",
+  "changes_applied": [
+    {
+      "rule_id": "RULE-MAX-NOTIONAL-001",
+      "field": "max_notional",
+      "from": 6000,
+      "to": 6500,
+      "direction": "loosen"
+    }
+  ]
+}

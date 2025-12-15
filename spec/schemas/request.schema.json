@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ssi-protocol.org/schemas/request.json",
+  "title": "SSI Decision Request",
+  "description": "JSON schema for SSI decision request to Gateway",
+  "type": "object",
+  "required": ["client_id", "system_id", "action"],
+  "properties": {
+    "client_id": {
+      "type": "string",
+      "description": "Identifier for the requesting client/application",
+      "minLength": 1,
+      "examples": ["aswf-live", "my-trading-bot"]
+    },
+    "system_id": {
+      "type": "string",
+      "description": "Identifier for the system/environment",
+      "minLength": 1,
+      "examples": ["trading-prod", "healthcare-staging"]
+    },
+    "action": {
+      "type": "object",
+      "description": "Action to be evaluated",
+      "required": ["type", "payload"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Action type identifier",
+          "pattern": "^[a-z0-9._-]+$",
+          "examples": ["trade.order.place", "medication.dosage.adjust"]
+        },
+        "payload": {
+          "type": "object",
+          "description": "Domain-specific action parameters",
+          "examples": [
+            {"notional": 5000, "open_positions_count": 1},
+            {"dosage_mg": 150, "patient_age": 65}
+          ]
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "description": "Optional contextual information",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "session_id": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

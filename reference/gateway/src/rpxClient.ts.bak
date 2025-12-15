@@ -1,0 +1,19 @@
+import fs from "fs";
+import path from "path";
+import { RPXEntry } from "./types";
+import { v4 as uuidv4 } from "uuid";
+
+const LOG_PATH = path.join(__dirname, "..", "rpx-log.jsonl");
+
+export function writeRPXEntry(entry: Omit<RPXEntry, "rpx_id" | "created_at">): RPXEntry {
+  const fullEntry: RPXEntry = {
+    rpx_id: uuidv4(),
+    created_at: new Date().toISOString(),
+    ...entry
+  };
+
+  const line = JSON.stringify(fullEntry);
+  fs.appendFileSync(LOG_PATH, line + "\n", { encoding: "utf8" });
+
+  return fullEntry;
+}

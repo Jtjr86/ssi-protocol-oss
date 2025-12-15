@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ssi-navy: 11 30 57;
+    --ssi-teal: 0 198 162;
+    --ssi-gray-light: 217 223 231;
+    --ssi-gray-dark: 108 116 128;
+
+    --background: 0 0% 100%;
+    --foreground: 11 30 57;
+    --card: 0 0% 100%;
+    --card-foreground: 11 30 57;
+    --popover: 0 0% 100%;
+    --popover-foreground: 11 30 57;
+    --primary: 11 30 57;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 11 30 57;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 108 116 128;
+    --accent: 0 198 162;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 11 30 57;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-white text-gray-900;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-ssi-navy;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .text-ssi-navy {
+    color: rgb(11 30 57);
+  }
+
+  .bg-ssi-navy {
+    background-color: rgb(11 30 57);
+  }
+
+  .text-ssi-teal {
+    color: rgb(0 198 162);
+  }
+
+  .bg-ssi-teal {
+    background-color: rgb(0 198 162);
+  }
+
+  .border-ssi-navy {
+    border-color: rgb(11 30 57);
+  }
+
+  .border-ssi-teal {
+    border-color: rgb(0 198 162);
+  }
+}
