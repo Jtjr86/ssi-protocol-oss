@@ -196,8 +196,8 @@ curl -X POST http://localhost:4040/v1/decisions \
 
 **What just happened:**
 1. Gateway received your decision request
-2. Kernel evaluated it against the `trading-safety-prod-v0.3.1` governance envelope
-3. Policy check: notional $1,500 < limit $7,500 → **ALLOW**
+2. Kernel evaluated it against the `trading-safety-prod-v0.3.1` policy envelope
+3. Policy recommendation: notional $1,500 < limit $7,500 → **ALLOW** (advisory)
 4. Gateway canonicalized the entry (RFC 8785 deterministic JSON)
 5. Gateway computed SHA-256 hash, signed with Ed25519, and chained to previous entry
 6. PostgreSQL stored the cryptographically signed RPX entry
@@ -418,13 +418,13 @@ curl http://localhost:4040/v1/audit/verify-chain/[tenant-A-decision-id] \
 
 **What this proves:**
 - ✅ Tenant B cannot access Tenant A's audit trail
-- ✅ Isolation is enforced at the database query level (not just API)
+- ✅ Multi-tenant isolation is enforced at the database query level (not just API)
 
 ---
 
 ## Step 6: Test Role-Based Access Control (10 minutes)
 
-SSI Protocol enforces three roles:
+SSI Protocol implements role-based access control (RBAC) with three roles:
 
 - **Viewer**: Can verify individual decisions (read-only)
 - **Auditor**: Can verify chains (read-only + chain traversal)
@@ -683,11 +683,10 @@ By completing this pilot, you've validated:
 
 ✅ **Cryptographic integrity works** (hash chains, signatures)  
 ✅ **Tamper detection works** (broken chains are caught)  
-✅ **Multi-tenant isolation works** (no cross-tenant leakage)  
-✅ **RBAC works** (roles enforced correctly)  
-✅ **Tests pass reliably** (zero regressions)
-
----
+✅ **Multi-tenant isolation works** (enforced at database level - no cross-tenant leakage)
+✅ **RBAC works** (API access enforced by role)
+✅ **Policy evaluation works** (advisory recommendations logged with decisions)
+✅ **Tests pass reliably** (zero regressions)---
 
 ## Feedback & Next Steps
 

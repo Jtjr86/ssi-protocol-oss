@@ -15,7 +15,7 @@ SSI Protocol provides **cryptographic audit trails** for AI systems, ensuring ev
 - ✅ **Tamper-evident** (SHA-256 hash chains + Ed25519 signatures)
 - ✅ **Verifiable** (independent auditors can validate integrity)
 - ✅ **Isolated** (multi-tenant architecture prevents cross-contamination)
-- ✅ **Policy-governed** (advisory policy evaluation with audit trails)
+- ✅ **Policy-audited** (logs policy recommendations alongside decisions)
 
 **Use Cases:**
 - AI decision logging (content moderation, trading systems, healthcare diagnostics)
