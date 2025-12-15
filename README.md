@@ -272,10 +272,10 @@ az postgres server create \
 -  Run production workloads without vendor dependency
 
 **SSI Cloud** is a **planned managed hosting option** (not yet available) that will provide:
--  Enterprise key management (KMS integration, automated rotation)
--  SLA guarantees (99.9% uptime, support contracts)
--  Operational controls (automated backups, disaster recovery)
--  Advanced exports (compliance reports, data warehouse integrations)
+- 🛡️ Enterprise key management (KMS integration, automated rotation)
+- 📜 SLA targets (when available - 99.9% uptime goal, support contracts)
+- 🚀 Operational controls (automated backups, disaster recovery)
+- 📊 Advanced exports (compliance reports, data warehouse integrations)
 
 ### No Vendor Lock-In
 
@@ -295,7 +295,7 @@ If SSI Cloud becomes available, it will be **one deployment option among many**,
 | **Control** | Full control over infrastructure | Managed service, less operational burden |
 | **Cost** | Pay for compute/storage only | Pay for platform + support |
 | **Customization** | Modify code freely | Configuration-based customization |
-| **Compliance** | Your responsibility (SOC 2, HIPAA, etc.) | Managed compliance certifications |
+| **Compliance** | Your responsibility (SOC 2, HIPAA, etc.) | Compliance support tooling (evidence exports, controls mapping) |
 | **Key Management** | DIY KMS integration | Automated key rotation + escrow |
 | **Support** | Community + self-service | Dedicated support team (SLA) |
 

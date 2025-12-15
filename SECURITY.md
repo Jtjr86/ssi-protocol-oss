@@ -11,6 +11,8 @@
 
 **DO NOT** open public GitHub issues for security vulnerabilities.
 
+**Please do not report vulnerabilities via public Issues.**
+
 ### How to Report
 
 **Please report security vulnerabilities by emailing:** security-ssi-protocol@protonmail.com
