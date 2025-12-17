@@ -1,5 +1,12 @@
 # SSI Protocol (Self-Sovereign Infrastructure)
 
+[![Version](https://img.shields.io/badge/version-1.0.0--invariant-blue.svg)](https://github.com/Jtjr86/ssi-protocol-oss/releases)
+[![Status](https://img.shields.io/badge/status-constitutional%20standard-green.svg)](https://github.com/Jtjr86/ssi-protocol-oss)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Stability](https://img.shields.io/badge/stability-invariant-brightgreen.svg)](https://github.com/Jtjr86/ssi-protocol-oss/blob/main/SPEC.md)
+[![Jurisdiction](https://img.shields.io/badge/jurisdiction-global-orange.svg)](https://github.com/Jtjr86/ssi-protocol-oss)
+
 **Version:** 1.0.0-invariant  
 **Status:** Constitutional Standard  
 **Jurisdiction:** Global (regulatory-agnostic)
