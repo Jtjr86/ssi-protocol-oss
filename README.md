@@ -1,388 +1,427 @@
-# Sovereign Synthetic Intelligence (SSI) Protocol
+# SSI Protocol — Sovereign Synthetic Intelligence
 
-> **Cryptographic audit trails for AI systems** — Production-ready governance infrastructure with tamper-evident decision logging, multi-tenant isolation, and role-based access control.
+**A constitutional standard for autonomous agent accountability**
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/tests-26%2F26%20passing-success)](tests/)
-[![Version](https://img.shields.io/badge/version-0.3.1-blue)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.0.0--invariant-blue)](SPEC.md)
+[![Constitutional](https://img.shields.io/badge/status-constitutional-success)](COMPLIANCE.md)
 
 ---
 
-## 🎯 What is SSI Protocol?
+## What SSI Protocol Is
 
-SSI Protocol provides **cryptographic audit trails** for AI systems, ensuring every decision is:
+The **Sovereign Synthetic Intelligence (SSI) Protocol** defines the minimum constitutional guarantees required for autonomous systems operating in high-stakes environments.
 
-- ✅ **Tamper-evident** (SHA-256 hash chains + Ed25519 signatures)
-- ✅ **Verifiable** (independent auditors can validate integrity)
-- ✅ **Isolated** (multi-tenant architecture prevents cross-contamination)
-- ✅ **Policy-audited** (logs policy recommendations alongside decisions)
+SSI provides:
 
-**Use Cases:**
-- AI decision logging (content moderation, trading systems, healthcare diagnostics)
-- Regulatory compliance (audit trails for AI-generated decisions)
-- Multi-tenant SaaS (isolated audit trails per customer)
+- **Decision authorization** — Agents request permission before executing consequential actions
+- **Cryptographic provenance** — Every decision produces an immutable, hash-chained audit record (RPX)
+- **Fail-closed semantics** — When safety cannot be determined, execution is denied by default
+- **Human authority** — Operators retain veto power over all autonomous decisions
+
+**SSI is NOT:**
+- An execution runtime (agents run elsewhere)
+- A machine learning model (agents use their own inference)
+- A certification authority (operators define policies)
+- A product (it is a protocol specification)
 
 ---
 
-## 🚀 Quick Start (1 Hour)
+## Who SSI Protocol Is For
 
-### Prerequisites
-- Docker Desktop (or Docker Engine + Docker Compose)
-- Node.js 18+
-- 5 GB disk space
+### Regulators
+SSI provides auditable standards for autonomous system accountability, supporting:
+- EU AI Act high-risk AI transparency requirements
+- GDPR right to explanation for automated decisions
+- Financial regulations (MiFID II, Dodd-Frank)
+- Medical device regulations (IEC 62304, FDA SaMD)
 
-### 1. Clone and Configure
+### Enterprises
+SSI enables defensible autonomous systems deployments:
+- **Autonomous vehicles** — Pre-action authorization, post-incident forensics
+- **Healthcare AI** — Decision accountability, malpractice protection
+- **Financial systems** — Regulatory compliance, audit trails
+- **Industrial automation** — Safety interlocks, certification substrate
+
+### Implementers
+SSI defines testable, verifiable requirements for compliant systems:
+- 3-level certification framework (Basic, Verified, Safety-Critical)
+- Open-source reference implementations
+- Compliance test suites
+
+---
+
+## Constitutional Documents
+
+SSI is governed by **five constitutional documents** that define immutable guarantees:
+
+| Document | Purpose |
+|----------|---------|
+| **[SPEC.md](SPEC.md)** | Core invariants (what must always hold) |
+| **[DECISIONS.md](DECISIONS.md)** | Decision ontology (what qualifies as a decision) |
+| **[AUDIT.md](AUDIT.md)** | Verification procedures (how compliance is proven) |
+| **[FAILURE.md](FAILURE.md)** | Fail-closed semantics (how safety is preserved under failure) |
+| **[COMPLIANCE.md](COMPLIANCE.md)** | Certification framework (how implementations are audited) |
+
+These documents are **intentionally stable**. Changes require RFC process and multi-stakeholder review.
+
+---
+
+## Core Principles
+
+### 1. Fail-Closed by Default
+
+When SSI cannot determine decision safety, it **denies execution**.
+
+```python
+# Correct: Fail-closed
+try:
+    outcome = evaluate_policy(action, context)
+except Exception:
+    outcome = DENY  # Safe default
+```
+
+### 2. Every Decision Has a Record
+
+Any action governed by SSI produces an **RPX (Reflective Provenance Extension)** record:
+
+- Cryptographic hash of decision context
+- Timestamp (ISO 8601, UTC)
+- Decision outcome (`ALLOW`, `DENY`, `ESCALATE`)
+- Hash-chained to previous record (tamper-evident)
+
+### 3. Human Authority is Preserved
+
+SSI provides operator override mechanisms:
+
+- Pre-approval workflows (`ESCALATE` outcome)
+- Post-hoc veto authority
+- Policy boundaries defined by operators
+
+Agents cannot self-authorize beyond policy limits.
+
+### 4. Verification is Independent
+
+Any party can verify RPX integrity without trusting the system:
+
+- Cryptographic hash chains (SHA-256 minimum)
+- No proprietary verification required
+- Tamper detection (modification, deletion, reordering)
+
+---
+
+## Compliance Levels
+
+SSI defines three certification levels:
+
+### Level 1: Basic Compliance
+**Self-certification, general-purpose systems**
+- Timeline: 1-4 weeks
+- Cost: Free
+- Use: Enterprise automation, recommendation systems
+
+### Level 2: Verified Compliance
+**Third-party audit, high-stakes systems**
+- Timeline: 2-8 weeks
+- Cost: $5,000 - $50,000
+- Use: Financial trading, healthcare, critical infrastructure
+
+### Level 3: Safety-Critical Compliance
+**Formal certification, life-safety systems**
+- Timeline: 6-18 months
+- Cost: $100,000+
+- Use: Autonomous vehicles, medical devices, aerospace
+
+See [COMPLIANCE.md](COMPLIANCE.md) for full certification framework.
+
+---
+
+## Reference Implementations
+
+SSI Protocol maintainers provide **canonical reference implementations**:
+
+### SSI Kernel
+Decision evaluation engine with policy-based authorization.
+
+**Location:** [`reference/kernel/`](reference/kernel/)
+
+### SSI Gateway
+RPX record management, hash chain verification, and audit interfaces.
+
+**Location:** [`reference/gateway/`](reference/gateway/)
+
+### DeAlgo
+**DeAlgo is the reference governance implementation authored by the creators of the SSI Protocol.**
+
+DeAlgo demonstrates advanced governance patterns including reflection-first decision processing, survival-aware gating, and human authority escalation workflows.
+
+**Location:** See [DeAlgo Lite](https://github.com/Jtjr86/ssi-protocol-existing/tree/main/reference) for public lab environment.
+
+---
+
+## Quick Start
+
+### 1. Understand the Constitutional Framework
+
+Read the five constitutional documents in order:
+
+1. [SPEC.md](SPEC.md) — Understand core invariants
+2. [DECISIONS.md](DECISIONS.md) — Learn what constitutes a decision
+3. [AUDIT.md](AUDIT.md) — See how verification works
+4. [FAILURE.md](FAILURE.md) — Understand fail-closed semantics
+5. [COMPLIANCE.md](COMPLIANCE.md) — Review certification requirements
+
+### 2. Run Reference Implementation
 
 ```bash
+# Clone repository
 git clone https://github.com/Jtjr86/ssi-protocol-oss.git
 cd ssi-protocol-oss
 
-# Generate cryptographic signing seed
+# Start SSI Gateway and Kernel
 cd reference/gateway
-cp .env.example .env
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+npm install
+npm start
+
+# In another terminal
+cd reference/kernel
+npm install
+npm start
 ```
 
-Edit `.env` and replace `SIGNING_SEED` with your generated value.
-
-⚠️ **SECURITY:** Never commit your `.env` file. It contains cryptographic secrets.
-
-### 2. Start Services
+### 3. Make Your First Decision
 
 ```bash
-cd ../..
-docker-compose -f docker/docker-compose.yml up -d
-```
-
-**Services:**
-- **Gateway** (port 4040): API server for decision logging
-- **Kernel** (port 5050): Policy evaluation service
-- **PostgreSQL** (port 5432): Audit trail database
-
-### 3. Record Your First Decision
-
-```bash
-curl -X POST http://localhost:4040/v1/decisions \
+# Submit decision request
+curl -X POST http://localhost:4041/api/decisions \
   -H "Content-Type: application/json" \
-  -H "x-api-key: ssi_test_admin_key_alpha_2024" \
   -d '{
-    "client_id": "trader-alice",
-    "system_id": "trading-prod",
-    "action": {
-      "type": "trade.order.place",
-      "payload": {"symbol": "AAPL", "qty": 10, "price": 150, "notional": 1500}
+    "agent_id": "test-agent-001",
+    "decision_type": "EXAMPLE_ACTION",
+    "context": {
+      "description": "Test decision for SSI evaluation"
     }
   }'
-```
 
-**Expected response:**
-```json
+# Response includes RPX record with hash chain
 {
-  "success": true,
-  "decision": {
-    "decision": "ALLOW",
-    "reason": "Within policy limits."
-  },
-  "rpx_id": "5e1a87f9-2922-4874-8ec7-5bf06f6d614d"
+  "outcome": "ALLOW",
+  "record_id": "550e8400-e29b-41d4-a716-446655440000",
+  "record_hash": "7b3e4f2a...",
+  "previous_hash": "a2f9c1d5...",
+  "timestamp": "2025-12-17T14:32:11Z"
 }
 ```
 
-### 4. Verify Integrity
+### 4. Verify Hash Chain
 
 ```bash
-curl http://localhost:4040/v1/audit/verify-chain/5e1a87f9... \
-  -H "x-api-key: ssi_test_auditor_key_alpha_2024"
-```
+# Verify chain integrity
+npm run verify-chain
 
-**What you just did:**
-1. ✅ Recorded a decision with cryptographic proof
-2. ✅ Evaluated it against governance policy
-3. ✅ Verified the audit trail is tamper-evident
-
-**Next:** Follow [`PILOT_README.md`](PILOT_README.md) for the complete 1-hour pilot guide (tamper detection, multi-tenant isolation, RBAC testing).
-
----
-
-## 📚 Documentation
-
-- **[Pilot Deployment Guide](PILOT_README.md)** — 1-hour hands-on deployment
-- **[Quick Start](QUICKSTART.md)** — 5-minute overview
-- **[Protocol Specification](spec/README.md)** — Technical details
-- **[Why SSI?](docs/WHY_SSI.md)** — Problem/solution narrative
-- **[Claim Matrix](docs/CLAIM_MATRIX.md)** — What we can/cannot claim
-- **[Contributing](CONTRIBUTING.md)** — How to contribute
-
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                    Your Application                      │
-│  (Trading Bot, Content Mod, Healthcare AI, etc.)        │
-└──────────────────────┬──────────────────────────────────┘
-                       │
-                       ▼
-        ┌──────────────────────────────┐
-        │      SSI Gateway (API)       │
-        │  - Decision logging          │
-        │  - Hash chain management     │
-        │  - Ed25519 signing           │
-        │  - Multi-tenant isolation    │
-        └──────┬───────────────┬───────┘
-               │               │
-               ▼               ▼
-    ┌──────────────┐   ┌──────────────┐
-    │  SSI Kernel  │   │  PostgreSQL  │
-    │  - Policy    │   │  - Audit     │
-    │    eval      │   │    trail     │
-    └──────────────┘   │  - Tenant    │
-                       │    data      │
-                       └──────────────┘
-```
-
-**Components:**
-
-| Component | Purpose | Tech Stack |
-|-----------|---------|------------|
-| **Gateway** | API server for decision logging | Node.js, Express, Ed25519 |
-| **Kernel** | Policy evaluation engine | Node.js, JSON schemas |
-| **PostgreSQL** | Tamper-evident audit database | PostgreSQL 15+, JSONB |
-| **SDKs** | Client libraries | TypeScript, Python |
-
----
-
-## 🧪 Testing
-
-Run the full test suite:
-
-```bash
-npm install
-npm test
-```
-
-**Expected output:**
-```
-✅ hash_chain_test.ts (5/5 tests passed)
-✅ tenant_isolation_test.ts (5/5 tests passed)
-✅ auth_api_key_test.ts (5/5 tests passed)
-✅ jwt_auth_test.ts (5/5 tests passed)
-✅ rbac_test.ts (6/6 tests passed)
-
-Total: 26/26 tests passed
-```
-
-**What's tested:**
-- SHA-256 hash chain integrity
-- Ed25519 signature validation
-- Multi-tenant isolation (no cross-tenant leakage)
-- API key authentication + RBAC
-- JWT authentication (optional)
-
----
-
-## 🔐 Security Model
-
-### Cryptographic Guarantees
-
-1. **Tamper Detection:** Every decision is hashed (SHA-256) and chained to the previous entry. Any modification breaks the chain.
-
-2. **Non-Repudiation:** Each entry is signed with Ed25519. Signatures prove authenticity.
-
-3. **Tenant Isolation:** Database queries enforce `tenant_id` filtering. No cross-tenant data access.
-
-4. **Role-Based Access Control (RBAC):**
-   - **Viewer:** Verify individual decisions
-   - **Auditor:** Verify chains (chain traversal)
-   - **Admin:** Write new decisions
-
-### Threat Model
-
-**SSI Protocol protects against:**
-- ✅ Database tampering (hash chain breaks)
-- ✅ Unauthorized access (API key + RBAC)
-- ✅ Cross-tenant leakage (tenant isolation)
-
-**SSI Protocol does NOT protect against:**
-- ❌ Compromised signing keys (use KMS for production)
-- ❌ Insider threats with database admin access
-- ❌ Deleted records (use backups + replication)
-
-See [CLAIM_MATRIX.md](docs/CLAIM_MATRIX.md) for detailed security analysis.
-
----
-
-## 🌐 Production Deployment
-
-### Environment Variables
-
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `DATABASE_URL` | Yes | PostgreSQL connection string |
-| `SIGNING_SEED` | Yes | Ed25519 seed (32-byte hex) — Use KMS in production! |
-| `PORT` | No | Gateway port (default: 4040) |
-| `KERNEL_URL` | Yes | Kernel endpoint (e.g., http://kernel:5050) |
-
-⚠️ **Production Security:**
-- **NEVER use the placeholder `SIGNING_SEED`** from `.env.example`
-- Migrate to **AWS KMS**, **Azure Key Vault**, or **Google Cloud KMS**
-- Use managed PostgreSQL (AWS RDS, Azure Database, Google Cloud SQL)
-- Enable TLS/HTTPS for all endpoints
-- Rotate API keys quarterly
-
-### Cloud Deployment
-
-**AWS:**
-```bash
-# Provision RDS PostgreSQL
-aws rds create-db-instance \
-  --db-instance-identifier ssi-protocol \
-  --engine postgres \
-  --engine-version 15.4 \
-  --db-instance-class db.t3.medium
-
-# Deploy Gateway (ECS, EKS, or Lambda)
-# See docs/deployment/aws.md (coming soon)
-```
-
-**Azure:**
-```bash
-# Provision Azure Database for PostgreSQL
-az postgres server create \
-  --resource-group ssi-protocol-rg \
-  --name ssi-protocol
-
-# Deploy Gateway (Azure Container Instances or AKS)
-# See docs/deployment/azure.md (coming soon)
+# Output:
+# ✓ Genesis record valid
+# ✓ Chain continuity verified (47 records)
+# ✓ No hash mismatches detected
+# ✓ Timestamps monotonic
+# ✓ Chain integrity: VALID
 ```
 
 ---
 
+## Documentation
+
+### For Developers
+
+- [Implementation Guide](docs/developers/implementation-guide.md) — Build SSI-compliant systems
+- [API Reference](docs/developers/api-reference.md) — RPX record format, endpoints
+- [Testing Guide](docs/developers/testing.md) — Compliance test suite
+
+### For Operators
+
+- [Policy Authoring Guide](docs/operators/policy-guide.md) — Define decision rules
+- [Deployment Guide](docs/operators/deployment.md) — Production setup
+- [Failure Recovery](docs/operators/failure-recovery.md) — Handle degraded states
+
+### For Regulators
+
+- [Compliance Overview](COMPLIANCE.md) — Certification framework
+- [Audit Procedures](AUDIT.md) — Verification methods
+- [Legal Framework](docs/legal/framework.md) — Liability and evidence admissibility
 
 ---
 
-##  Protocol vs SSI Cloud
+## Use Cases
 
-### What's the Difference?
+### Autonomous Vehicles
 
-**SSI Protocol** is an **open specification + reference implementation** for cryptographic audit trails. You can:
--  Self-host the entire stack (Gateway + Kernel + PostgreSQL)
--  Modify the code for your use case (Apache 2.0 license)
--  Deploy on any cloud provider (AWS, Azure, GCP, on-premises)
--  Run production workloads without vendor dependency
+**SSI provides:**
+- Pre-decision authorization (lane change, braking, acceleration)
+- Cryptographic decision logs for post-incident analysis
+- Fail-closed safety (if authorization fails, vehicle halts)
 
-**SSI Cloud** is a **planned managed hosting option** (not yet available) that will provide:
-- 🛡️ Enterprise key management (KMS integration, automated rotation)
-- 📜 SLA targets (when available - 99.9% uptime goal, support contracts)
-- 🚀 Operational controls (automated backups, disaster recovery)
-- 📊 Advanced exports (compliance reports, data warehouse integrations)
-
-### No Vendor Lock-In
-
-The SSI Protocol is designed to be **deployment-agnostic**:
-- **Protocol specification** is open and versioned (Apache 2.0)
-- **Reference implementation** is fully functional for production use
-- **No proprietary extensions** required for core functionality
-- **Standard PostgreSQL**  migrate data anytime using pg_dump
-- **Standard REST APIs**  switch implementations without client changes
-
-If SSI Cloud becomes available, it will be **one deployment option among many**, not a requirement.
-
-### When to Self-Host vs Use SSI Cloud
-
-| Factor | Self-Host | SSI Cloud (Future) |
-|--------|-----------|-------------------|
-| **Control** | Full control over infrastructure | Managed service, less operational burden |
-| **Cost** | Pay for compute/storage only | Pay for platform + support |
-| **Customization** | Modify code freely | Configuration-based customization |
-| **Compliance** | Your responsibility (SOC 2, HIPAA, etc.) | Compliance support tooling (evidence exports, controls mapping) |
-| **Key Management** | DIY KMS integration | Automated key rotation + escrow |
-| **Support** | Community + self-service | Dedicated support team (SLA) |
-
-**Recommendation:** Start with self-hosting using [PILOT_README.md](PILOT_README.md). Evaluate SSI Cloud later if operational burden becomes a concern.
-
-### Certification  Vendor Lock-In
-
-The [CERTIFICATION_FRAMEWORK.md](CERTIFICATION_FRAMEWORK.md) defines **protocol compliance** (similar to W3C standards or OAuth2 certification), not commercial gatekeeping. Any implementation that:
--  Uses Ed25519 + SHA-256 for audit trails
--  Enforces multi-tenant isolation
--  Supports RBAC (admin, operator, auditor, viewer)
--  Provides tamper-detection APIs
-
-...can be considered SSI Protocol-compliant, regardless of who operates it.
-
-## 🛣️ Roadmap
-
-### ✅ Completed (v0.3.1)
-- SHA-256 hash chains + Ed25519 signatures
-- Multi-tenant isolation
-- API key + JWT authentication
-- RBAC (viewer, auditor, admin)
-- 26/26 tests passing
-
-### 🚧 In Progress (v0.4.0)
-- Per-tenant signing keys (B3)
-- Export tools (CSV, JSON, Parquet)
-- Advanced query API (time ranges, filtering)
-
-### 🔮 Future (v0.5.0+)
-- Zero-knowledge proofs (selective disclosure)
-- Distributed ledger integration (Hyperledger, Ethereum)
-- Real-time alerting (webhooks, email)
-
-See [GitHub Issues](https://github.com/Jtjr86/ssi-protocol-oss/issues) for detailed roadmap.
+**Regulatory Alignment:** ISO 26262 (automotive safety)
 
 ---
 
-## 🤝 Contributing
+### Healthcare AI
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+**SSI provides:**
+- Decision provenance for treatment recommendations
+- Auditability for malpractice review
+- Human escalation for high-stakes decisions
 
-**Ways to contribute:**
-- 🐛 Bug reports and fixes
-- 📚 Documentation improvements
-- ✨ Feature requests and implementations
-- 🧪 Test coverage expansion
-- 🌍 Language translations
+**Regulatory Alignment:** IEC 62304 (medical device software), FDA SaMD
 
 ---
 
-## 📄 License
+### Financial Trading
 
-This project is licensed under the **Apache License 2.0** — see [LICENSE](LICENSE) for details.
+**SSI provides:**
+- Audit trails for algorithmic trading decisions
+- Fail-closed risk management (deny execution on policy violation)
+- Compliance reporting for regulators
 
-**Key terms:**
-- ✅ Commercial use allowed
-- ✅ Modification allowed
-- ✅ Distribution allowed
-- ⚠️ Must include NOTICE file in distributions
-- ⚠️ Changes must be documented
+**Regulatory Alignment:** MiFID II, Dodd-Frank, SEC requirements
 
 ---
 
-## 🆘 Support
+### Industrial Automation
 
-- **Issues:** [github.com/Jtjr86/ssi-protocol-oss/issues](https://github.com/Jtjr86/ssi-protocol-oss/issues)
-- **Discussions:** [github.com/Jtjr86/ssi-protocol-oss/discussions](https://github.com/Jtjr86/ssi-protocol-oss/discussions)
-- **Documentation:** [docs/](docs/)
+**SSI provides:**
+- Safety interlocks for robotic systems
+- Operator override mechanisms
+- Certification substrate for industrial safety standards
 
----
-
-## 🙏 Acknowledgments
-
-Built with:
-- [Node.js](https://nodejs.org/) + [TypeScript](https://www.typescriptlang.org/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Ed25519 (tweetnacl)](https://tweetnacl.js.org/)
-- [Docker](https://www.docker.com/)
-- [Next.js](https://nextjs.org/) (website)
-
-Inspired by:
-- [RFC 8785](https://tools.ietf.org/html/rfc8785) (Canonical JSON)
-- [Hyperledger Fabric](https://www.hyperledger.org/use/fabric) (blockchain audit trails)
-- [Trillian](https://github.com/google/trillian) (transparent logs)
+**Regulatory Alignment:** IEC 61508 (functional safety)
 
 ---
 
-**Ready to build tamper-evident audit trails for your AI system?**  
-Start with the [Pilot Deployment Guide](PILOT_README.md) (1 hour).
+## Governance
+
+SSI Protocol is governed by immutable constitutional invariants. Changes require:
+
+- **RFC Process** — Public proposal and review
+- **Multi-stakeholder approval** — Developers, regulators, operators
+- **Backward compatibility** — Invariants cannot be weakened
+- **Transition periods** — 12-24 months for ecosystem adaptation
+
+See [Governance Framework](docs/governance/framework.md) for details.
+
+---
+
+## Roadmap
+
+### Current: v1.0.0-invariant (Constitutional Foundation)
+
+✅ Core invariants defined (SPEC.md)  
+✅ Decision ontology established (DECISIONS.md)  
+✅ Verification procedures documented (AUDIT.md)  
+✅ Fail-closed semantics formalized (FAILURE.md)  
+✅ Certification framework published (COMPLIANCE.md)
+
+### Next: v1.1.0 (Compliance Tooling)
+
+- [ ] Compliance test suite (automated verification)
+- [ ] CLI verification tool (`ssi-verify`)
+- [ ] Reference policy examples
+- [ ] Auditor certification program
+
+### Future: v2.0.0 (Ecosystem Expansion)
+
+- [ ] SSI Explorer (public audit trail viewer)
+- [ ] Multi-language SDKs (Python, Java, Rust)
+- [ ] Distributed ledger integration (optional)
+- [ ] ISO/IEC standards alignment
+
+**Philosophy:** SSI evolves slowly. Stability is a feature, not a bug.
+
+---
+
+## Security
+
+### Reporting Vulnerabilities
+
+**DO NOT** open public GitHub issues for security vulnerabilities.
+
+Instead:
+- Email: security@ssi-protocol.org (to be established)
+- PGP Key: [Available here](docs/security/pgp-key.asc)
+
+We will acknowledge receipt within 48 hours and provide a fix timeline.
+
+### Security Model
+
+SSI's security guarantees:
+
+✅ **Tamper-evident** — Hash chains detect modification, deletion, reordering  
+✅ **Cryptographically verifiable** — SHA-256 minimum (FIPS 180-4)  
+✅ **Fail-closed** — Errors deny execution (never fail-open)  
+✅ **Context-bound** — Decisions cannot be evaluated against future context
+
+SSI does **NOT** guarantee:
+- ❌ Correctness of decisions (policy logic is operator-defined)
+- ❌ Availability (fail-closed may halt execution)
+- ❌ Confidentiality of decision data (use encryption separately)
+
+See [SECURITY.md](SECURITY.md) for full disclosure policy.
+
+---
+
+## Contributing
+
+SSI Protocol is open source (Apache 2.0) but **constitutionally governed**.
+
+### How to Contribute
+
+1. **Implementation Improvements** — Submit PRs for reference implementations
+2. **Documentation** — Clarify guides, add examples
+3. **Tooling** — Build compliance test suites, verification tools
+4. **Translations** — Translate constitutional docs (maintain technical accuracy)
+
+### What Requires RFC Process
+
+- Changes to constitutional documents (SPEC, DECISIONS, AUDIT, FAILURE, COMPLIANCE)
+- New compliance levels or certification requirements
+- Breaking changes to RPX record format
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+---
+
+## License
+
+**Protocol Specification:** Apache License 2.0 (constitutional documents)  
+**Reference Implementations:** Apache License 2.0 (code)
+
+See [LICENSE](LICENSE) and [NOTICE](NOTICE) for full terms.
+
+---
+
+## Contact
+
+**General Inquiries:** [GitHub Discussions](https://github.com/Jtjr86/ssi-protocol-oss/discussions)  
+**Compliance Questions:** compliance@ssi-protocol.org (to be established)  
+**Security Issues:** security@ssi-protocol.org (to be established)  
+**Governance:** governance@ssi-protocol.org (to be established)
+
+---
+
+## Acknowledgments
+
+SSI Protocol builds on decades of distributed systems research:
+
+- Cryptographic hash chains (Merkle trees, blockchain)
+- Fail-safe design principles (safety-critical systems engineering)
+- Audit logging standards (PCI-DSS, HIPAA)
+- Policy-based access control (XACML, RBAC)
+
+We are grateful to the researchers and practitioners who established these foundations.
+
+---
+
+**SSI Protocol is infrastructure for accountable autonomy. It defines the minimum guarantees that enable trust in autonomous systems.**
+
+**Version:** 1.0.0-invariant  
+**Status:** Constitutional  
+**Last Updated:** December 17, 2025
