@@ -41,6 +41,7 @@ export function Navigation() {
       ],
     },
     { label: "Developers", href: "/developers" },
+    { label: "Explorer", href: "/explorer" },
     { label: "Regulators", href: "/regulators" },
     { label: "Research", href: "/research" },
     { label: "Standards", href: "/standards" },
