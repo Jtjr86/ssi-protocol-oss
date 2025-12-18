@@ -6,6 +6,10 @@
 **Date:** December 17, 2025  
 **Authority:** SSI Protocol Specification  
 
+> **AUTHORITY BOUNDARY**  
+> This guidance enables understanding of SSI conformance. Certification, regulatory acceptance,  
+> and enforceable procurement language require formal engagement with the SSI Protocol Authority.  
+
 > **NON-NORMATIVE GUIDANCE**  
 > This document provides high-level guidance for procurement teams.  
 > Full RFP language and enforceable contract clauses available through **SSI Enterprise Program**.

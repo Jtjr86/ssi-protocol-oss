@@ -6,6 +6,10 @@
 **Date:** December 17, 2025  
 **Authority:** SSI Protocol Specification  
 
+> **AUTHORITY BOUNDARY**  
+> This specification enables independent verification. Certification, regulatory acceptance,  
+> and compliance attestation require formal recognition by the SSI Protocol Authority.  
+
 > **NORMATIVE SPECIFICATION**  
 > This document is required for SSI Protocol compliance.  
 > All requirements herein are mandatory unless explicitly marked optional.
