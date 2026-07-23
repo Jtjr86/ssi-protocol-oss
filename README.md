@@ -15,6 +15,17 @@
 
 ## What is SSI Protocol?
 
+### Meaning of the Name
+
+**SSI** means **Sovereign Synthetic Intelligence**.
+
+Within this standard:
+
+- **Sovereign** means that defined human authority, governance policy, and authorized oversight remain superior to autonomous system behavior.
+- **Synthetic Intelligence** means software-based artificial intelligence and autonomous decision-making systems.
+- **Sovereign Synthetic Intelligence** refers to artificial intelligence systems designed to operate under enforceable governance, preserved human authority, cryptographically verifiable decision records, and integrity controls.
+
+Accordingly, **SSI Protocol** is an AI governance and audit protocol. It is **not** an identity-management protocol and does **not** refer to self-sovereign identity (SSI).
 SSI Protocol is a **constitutional standard** for AI decision-making that guarantees:
 
 1. **Every decision is recorded** (tamper-evident hash chain)
