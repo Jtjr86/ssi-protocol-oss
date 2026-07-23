@@ -1,4 +1,4 @@
-# SSI Protocol (Self-Sovereign Infrastructure)
+# SSI Protocol — Sovereign Synthetic Intelligence
 
 [![Version](https://img.shields.io/badge/version-1.0.0--invariant-blue.svg)](https://github.com/Jtjr86/ssi-protocol-oss/releases)
 [![Status](https://img.shields.io/badge/status-constitutional%20standard-green.svg)](https://github.com/Jtjr86/ssi-protocol-oss)
